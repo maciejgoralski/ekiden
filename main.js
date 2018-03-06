@@ -15,7 +15,7 @@ let positionStartD;
 let positionStartE;
 
 
-let arCurrentRunners = [0,0,0,0,0,0];
+let arCurrentRunners = [0,0,0,0,0];
 let arEkiden;
 let jsonEkiden = {
   "ekiden": [
@@ -209,21 +209,26 @@ function drawRunner(position, speed, radius, red, green, blue) {
 }
 
 function run(teem) {
-
-  let divTxt = "Biegnie: " 
+  let stoper = new Date();
+  let divTxt = "<table><tr><td><img src=\"images\\run.png\"></td><td>" 
+  + arEkiden[teem].crew[arCurrentRunners[teem]].number
+  + ". "
   + arEkiden[teem].crew[arCurrentRunners[teem]].name 
   + " " 
+  + "<img src=\"images\\" 
   + arEkiden[teem].crew[arCurrentRunners[teem]].lap 
-  + "-okrążenie"
+  + ".png\">"
+  + "</td></tr>"
 
   arCurrentRunners[teem] = arCurrentRunners[teem] + 1;
   
   divTxt = divTxt 
-  + "<br>Szykuje się: " 
+  + "<tr><td><img src=\"images\\wait.png\"></td><td>" 
+  + arEkiden[teem].crew[arCurrentRunners[teem]].number
+  + ". "
   + arEkiden[teem].crew[arCurrentRunners[teem]].name 
-  + " za "
-  + "14" 
-  + "min";
+  + " "+ stoper.getMinutes() + ":" + stoper.getSeconds() 
+  + "</td></tr></table>";
 
   if (teem == 0) {
     positionStartA = new Date();
