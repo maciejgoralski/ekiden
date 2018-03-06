@@ -210,12 +210,12 @@ function drawRunner(position, speed, radius, red, green, blue) {
 
 function run(teem) {
   let stoper = new Date();
-  let divTxt = "<table><tr><td><img src=\"images\\run.png\"></td><td>" 
+  let divTxt = "<table><tr><td><img src=\"images/run.png\"></td><td>" 
   + arEkiden[teem].crew[arCurrentRunners[teem]].number
   + ". "
   + arEkiden[teem].crew[arCurrentRunners[teem]].name 
   + " " 
-  + "<img src=\"images\\" 
+  + "<img src=\"images/" 
   + arEkiden[teem].crew[arCurrentRunners[teem]].lap 
   + ".png\">"
   + "</td></tr>"
@@ -223,7 +223,7 @@ function run(teem) {
   arCurrentRunners[teem] = arCurrentRunners[teem] + 1;
   
   divTxt = divTxt 
-  + "<tr><td><img src=\"images\\wait.png\"></td><td>" 
+  + "<tr><td><img src=\"images/wait.png\"></td><td>" 
   + arEkiden[teem].crew[arCurrentRunners[teem]].number
   + ". "
   + arEkiden[teem].crew[arCurrentRunners[teem]].name 
