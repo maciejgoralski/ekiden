@@ -159,7 +159,7 @@ let jsonEkiden = {
 
 
 function setup() {
-  var myCanvas = createCanvas(400, 400);
+  var myCanvas = createCanvas(350, 350);
   myCanvas.parent("divCanvas");
 
   angleMode(DEGREES);
@@ -200,6 +200,9 @@ function draw() {
   if (positionE <= speedE) {drawRunner(positionE, speedE, 220, 0, 162, 205);};
 
 
+  for (let i = 0; i < arEkiden.length; i++) {
+    document.getElementById("divTeem" + i).innerHTML = status(i);
+  }
 
   
 }
@@ -229,9 +232,6 @@ function run(teem) {
     positionStartE = new Date();
   }
 
-  for (let i = 0; i < arEkiden.length; i++) {
-    document.getElementById("divTeem" + i).innerHTML = status(i);
-  }
 }
 
 function status(teem) {
@@ -257,7 +257,7 @@ function status(teem) {
   + arEkiden[teem].crew[iNextRunner].number
   + ". "
   + arEkiden[teem].crew[iNextRunner].name 
-  //+ " "+ stoper.getMinutes() + ":" + stoper.getSeconds() 
+  + " "+ stoper.getMinutes() + ":" + stoper.getSeconds() 
   + "</td></tr></table>";
 
   
