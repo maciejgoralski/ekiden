@@ -22,136 +22,136 @@ let jsonEkiden = {
       {
         "title": "Drużyna A", 
         "crew": [
-          {"number": "1", "name": "Alicja", "laptime" : 3, "lap" : 1},
-          {"number": "1", "name": "Alicja", "laptime" : 3, "lap" : 2},
-          {"number": "1", "name": "Alicja", "laptime" : 3, "lap" : 3},
+          {"number": "1", "name": "Alicja", "laptime" : 3, "lap" : 1, "lapicon" : "0z3.png"},
+          {"number": "1", "name": "Alicja", "laptime" : 3, "lap" : 2, "lapicon" : "1z3.png"},
+          {"number": "1", "name": "Alicja", "laptime" : 3, "lap" : 3, "lapicon" : "2z3.png"},
           
-          {"number": "2", "name": "Agnieszka", "laptime" : 1, "lap" : 1},
-          {"number": "2", "name": "Agnieszka", "laptime" : 1, "lap" : 2},
-          {"number": "2", "name": "Agnieszka", "laptime" : 1, "lap" : 3},
-          {"number": "2", "name": "Agnieszka", "laptime" : 1, "lap" : 4},
+          {"number": "2", "name": "Agnieszka", "laptime" : 1, "lap" : 1, "lapicon" : "0z4.png"},
+          {"number": "2", "name": "Agnieszka", "laptime" : 1, "lap" : 2, "lapicon" : "1z4.png"},
+          {"number": "2", "name": "Agnieszka", "laptime" : 1, "lap" : 3, "lapicon" : "2z4.png"},
+          {"number": "2", "name": "Agnieszka", "laptime" : 1, "lap" : 4, "lapicon" : "3z4.png"},
 
-          {"number": "3", "name": "Anna", "laptime" : 6, "lap" : 1},
-          {"number": "3", "name": "Anna", "laptime" : 6, "lap" : 2},
-          {"number": "3", "name": "Anna", "laptime" : 6, "lap" : 3},
-          {"number": "3", "name": "Anna", "laptime" : 6, "lap" : 4},
+          {"number": "3", "name": "Anna", "laptime" : 6, "lap" : 1, "lapicon" : "0z4.png"},
+          {"number": "3", "name": "Anna", "laptime" : 6, "lap" : 2, "lapicon" : "1z4.png"},
+          {"number": "3", "name": "Anna", "laptime" : 6, "lap" : 3, "lapicon" : "2z4.png"},
+          {"number": "3", "name": "Anna", "laptime" : 6, "lap" : 4, "lapicon" : "3z4.png"},
 
-          {"number": "4", "name": "Arek", "laptime" : 5, "lap" : 1},
-          {"number": "4", "name": "Arek", "laptime" : 5, "lap" : 2},
+          {"number": "4", "name": "Arek", "laptime" : 5, "lap" : 1, "lapicon" : "0z2.png"},
+          {"number": "4", "name": "Arek", "laptime" : 5, "lap" : 2, "lapicon" : "1z2.png"},
 
-          {"number": "5", "name": "Antoni", "laptime" : 1, "lap" : 1},
-          {"number": "5", "name": "Antoni", "laptime" : 1, "lap" : 2},
+          {"number": "5", "name": "Antoni", "laptime" : 1, "lap" : 1, "lapicon" : "0z2.png"},
+          {"number": "5", "name": "Antoni", "laptime" : 1, "lap" : 2, "lapicon" : "1z2.png"},
 
-          {"number": "6", "name": "Agata", "laptime" : 2, "lap" : 1},
-          {"number": "6", "name": "Agata", "laptime" : 2, "lap" : 2}
+          {"number": "6", "name": "Agata", "laptime" : 2, "lap" : 1, "lapicon" : "0z2.png"},
+          {"number": "6", "name": "Agata", "laptime" : 2, "lap" : 2, "lapicon" : "1z2.png"}
         ]
       },
       {
         "title": "Drużyna B", 
         "crew": [
-          {"number": "1", "name": "Bartosz", "laptime" : 1, "lap" : 1},
-          {"number": "1", "name": "Bartosz", "laptime" : 1, "lap" : 2},
-          {"number": "1", "name": "Bartosz", "laptime" : 1, "lap" : 3},
+          {"number": "1", "name": "Bartosz", "laptime" : 1, "lap" : 1, "lapicon" : "0z3.png"},
+          {"number": "1", "name": "Bartosz", "laptime" : 1, "lap" : 2, "lapicon" : "1z3.png"},
+          {"number": "1", "name": "Bartosz", "laptime" : 1, "lap" : 3, "lapicon" : "2z3.png"},
           
-          {"number": "2", "name": "Basia", "laptime" : 2, "lap" : 1},
-          {"number": "2", "name": "Basia", "laptime" : 3, "lap" : 2},
-          {"number": "2", "name": "Basia", "laptime" : 2, "lap" : 3},
-          {"number": "2", "name": "Basia", "laptime" : 2, "lap" : 4},
+          {"number": "2", "name": "Basia", "laptime" : 2, "lap" : 1, "lapicon" : "0z4.png"},
+          {"number": "2", "name": "Basia", "laptime" : 3, "lap" : 2, "lapicon" : "1z4.png"},
+          {"number": "2", "name": "Basia", "laptime" : 2, "lap" : 3, "lapicon" : "2z4.png"},
+          {"number": "2", "name": "Basia", "laptime" : 2, "lap" : 4, "lapicon" : "3z4.png"},
 
-          {"number": "3", "name": "Beata", "laptime" : 5, "lap" : 1},
-          {"number": "3", "name": "Beata", "laptime" : 5, "lap" : 2},
-          {"number": "3", "name": "Beata", "laptime" : 5, "lap" : 3},
-          {"number": "3", "name": "Beata", "laptime" : 5, "lap" : 4},
+          {"number": "3", "name": "Beata", "laptime" : 5, "lap" : 1, "lapicon" : "0z4.png"},
+          {"number": "3", "name": "Beata", "laptime" : 5, "lap" : 2, "lapicon" : "1z4.png"},
+          {"number": "3", "name": "Beata", "laptime" : 5, "lap" : 3, "lapicon" : "2z4.png"},
+          {"number": "3", "name": "Beata", "laptime" : 5, "lap" : 4, "lapicon" : "3z4.png"},
 
-          {"number": "4", "name": "Baca", "laptime" : 4, "lap" : 1},
-          {"number": "4", "name": "Baca", "laptime" : 4, "lap" : 2},
+          {"number": "4", "name": "Baca", "laptime" : 4, "lap" : 1, "lapicon" : "0z2.png"},
+          {"number": "4", "name": "Baca", "laptime" : 4, "lap" : 2, "lapicon" : "1z2.png"},
 
-          {"number": "5", "name": "Barbara", "laptime" : 2, "lap" : 1},
-          {"number": "5", "name": "Barbara", "laptime" : 2, "lap" : 2},
+          {"number": "5", "name": "Barbara", "laptime" : 2, "lap" : 1, "lapicon" : "0z2.png"},
+          {"number": "5", "name": "Barbara", "laptime" : 2, "lap" : 2, "lapicon" : "1z2.png"},
 
-          {"number": "6", "name": "Bolek", "laptime" : 3, "lap" : 1},
-          {"number": "6", "name": "Bolek", "laptime" : 3, "lap" : 2}
+          {"number": "6", "name": "Bolek", "laptime" : 3, "lap" : 1, "lapicon" : "0z2.png"},
+          {"number": "6", "name": "Bolek", "laptime" : 3, "lap" : 2, "lapicon" : "1z2.png"}
         ]
       },
       {
         "title": "Drużyna C", 
         "crew": [
-          {"number": "1", "name": "Cecylia", "laptime" : 3, "lap" : 1},
-          {"number": "1", "name": "Cecylia", "laptime" : 3, "lap" : 2},
-          {"number": "1", "name": "Cecylia", "laptime" : 3, "lap" : 3},
+          {"number": "1", "name": "Cecylia", "laptime" : 3, "lap" : 1, "lapicon" : "0z3.png"},
+          {"number": "1", "name": "Cecylia", "laptime" : 3, "lap" : 2, "lapicon" : "1z3.png"},
+          {"number": "1", "name": "Cecylia", "laptime" : 3, "lap" : 3, "lapicon" : "2z3.png"},
           
-          {"number": "2", "name": "Czarek", "laptime" : 2, "lap" : 1},
-          {"number": "2", "name": "Czarek", "laptime" : 3, "lap" : 2},
-          {"number": "2", "name": "Czarek", "laptime" : 2, "lap" : 3},
-          {"number": "2", "name": "Czarek", "laptime" : 2, "lap" : 4},
+          {"number": "2", "name": "Czarek", "laptime" : 2, "lap" : 1, "lapicon" : "0z4.png"},
+          {"number": "2", "name": "Czarek", "laptime" : 3, "lap" : 2, "lapicon" : "1z4.png"},
+          {"number": "2", "name": "Czarek", "laptime" : 2, "lap" : 3, "lapicon" : "2z4.png"},
+          {"number": "2", "name": "Czarek", "laptime" : 2, "lap" : 4, "lapicon" : "3z4.png"},
 
-          {"number": "3", "name": "Cezary", "laptime" : 5, "lap" : 1},
-          {"number": "3", "name": "Cezary", "laptime" : 5, "lap" : 2},
-          {"number": "3", "name": "Cezary", "laptime" : 5, "lap" : 3},
-          {"number": "3", "name": "Cezary", "laptime" : 5, "lap" : 4},
+          {"number": "3", "name": "Cezary", "laptime" : 5, "lap" : 1, "lapicon" : "0z4.png"},
+          {"number": "3", "name": "Cezary", "laptime" : 5, "lap" : 2, "lapicon" : "1z4.png"},
+          {"number": "3", "name": "Cezary", "laptime" : 5, "lap" : 3, "lapicon" : "2z4.png"},
+          {"number": "3", "name": "Cezary", "laptime" : 5, "lap" : 4, "lapicon" : "3z4.png"},
 
-          {"number": "4", "name": "Cylina", "laptime" : 4, "lap" : 1},
-          {"number": "4", "name": "Cylina", "laptime" : 4, "lap" : 2},
+          {"number": "4", "name": "Cylina", "laptime" : 4, "lap" : 1, "lapicon" : "0z2.png"},
+          {"number": "4", "name": "Cylina", "laptime" : 4, "lap" : 2, "lapicon" : "1z2.png"},
 
-          {"number": "5", "name": "Clara", "laptime" : 2, "lap" : 1},
-          {"number": "5", "name": "Clara", "laptime" : 2, "lap" : 2},
+          {"number": "5", "name": "Clara", "laptime" : 2, "lap" : 1, "lapicon" : "0z2.png"},
+          {"number": "5", "name": "Clara", "laptime" : 2, "lap" : 2, "lapicon" : "1z2.png"},
 
-          {"number": "6", "name": "Cedmin", "laptime" : 3, "lap" : 1},
-          {"number": "6", "name": "Cedmin", "laptime" : 3, "lap" : 2}
+          {"number": "6", "name": "Cedmin", "laptime" : 3, "lap" : 1, "lapicon" : "0z2.png"},
+          {"number": "6", "name": "Cedmin", "laptime" : 3, "lap" : 2, "lapicon" : "1z2.png"}
         ]
       },
       {
         "title": "Drużyna D", 
         "crew": [
-          {"number": "1", "name": "Darek", "laptime" : 1, "lap" : 1},
-          {"number": "1", "name": "Darek", "laptime" : 1, "lap" : 2},
-          {"number": "1", "name": "Darek", "laptime" : 1, "lap" : 3},
+          {"number": "1", "name": "Darek", "laptime" : 1, "lap" : 1, "lapicon" : "0z3.png"},
+          {"number": "1", "name": "Darek", "laptime" : 1, "lap" : 2, "lapicon" : "1z3.png"},
+          {"number": "1", "name": "Darek", "laptime" : 1, "lap" : 3, "lapicon" : "2z3.png"},
           
-          {"number": "2", "name": "Damian", "laptime" : 2, "lap" : 1},
-          {"number": "2", "name": "Damian", "laptime" : 2, "lap" : 2},
-          {"number": "2", "name": "Damian", "laptime" : 2, "lap" : 3},
-          {"number": "2", "name": "Damian", "laptime" : 2, "lap" : 4},
+          {"number": "2", "name": "Damian", "laptime" : 2, "lap" : 1, "lapicon" : "0z4.png"},
+          {"number": "2", "name": "Damian", "laptime" : 2, "lap" : 2, "lapicon" : "1z4.png"},
+          {"number": "2", "name": "Damian", "laptime" : 2, "lap" : 3, "lapicon" : "2z4.png"},
+          {"number": "2", "name": "Damian", "laptime" : 2, "lap" : 4, "lapicon" : "3z4.png"},
 
-          {"number": "3", "name": "Dorota", "laptime" : 5, "lap" : 1},
-          {"number": "3", "name": "Dorota", "laptime" : 5, "lap" : 2},
-          {"number": "3", "name": "Dorota", "laptime" : 5, "lap" : 3},
-          {"number": "3", "name": "Dorota", "laptime" : 5, "lap" : 4},
+          {"number": "3", "name": "Dorota", "laptime" : 5, "lap" : 1, "lapicon" : "0z4.png"},
+          {"number": "3", "name": "Dorota", "laptime" : 5, "lap" : 2, "lapicon" : "1z4.png"},
+          {"number": "3", "name": "Dorota", "laptime" : 5, "lap" : 3, "lapicon" : "2z4.png"},
+          {"number": "3", "name": "Dorota", "laptime" : 5, "lap" : 4, "lapicon" : "3z4.png"},
 
-          {"number": "4", "name": "Dagmara", "laptime" : 4, "lap" : 1},
-          {"number": "4", "name": "Dagmara", "laptime" : 4, "lap" : 2},
+          {"number": "4", "name": "Dagmara", "laptime" : 4, "lap" : 1, "lapicon" : "0z2.png"},
+          {"number": "4", "name": "Dagmara", "laptime" : 4, "lap" : 2, "lapicon" : "1z2.png"},
 
-          {"number": "5", "name": "Doris", "laptime" : 2, "lap" : 1},
-          {"number": "5", "name": "Doris", "laptime" : 2, "lap" : 2},
+          {"number": "5", "name": "Doris", "laptime" : 2, "lap" : 1, "lapicon" : "0z2.png"},
+          {"number": "5", "name": "Doris", "laptime" : 2, "lap" : 2, "lapicon" : "1z2.png"},
 
-          {"number": "6", "name": "Daniel", "laptime" : 3, "lap" : 1},
-          {"number": "6", "name": "Daniel", "laptime" : 3, "lap" : 2}
+          {"number": "6", "name": "Daniel", "laptime" : 3, "lap" : 1, "lapicon" : "0z2.png"},
+          {"number": "6", "name": "Daniel", "laptime" : 3, "lap" : 2, "lapicon" : "1z2.png"}
         ]
       },
       {
         "title": "Drużyna E", 
         "crew": [
-          {"number": "1", "name": "Edward", "laptime" : 2, "lap" : 1},
-          {"number": "1", "name": "Edward", "laptime" : 2, "lap" : 2},
-          {"number": "1", "name": "Edward", "laptime" : 2, "lap" : 3},
+          {"number": "1", "name": "Edward", "laptime" : 2, "lap" : 1, "lapicon" : "0z3.png"},
+          {"number": "1", "name": "Edward", "laptime" : 2, "lap" : 2, "lapicon" : "1z3.png"},
+          {"number": "1", "name": "Edward", "laptime" : 2, "lap" : 3, "lapicon" : "2z3.png"},
           
-          {"number": "2", "name": "Ewa", "laptime" : 3, "lap" : 1},
-          {"number": "2", "name": "Ewa", "laptime" : 3, "lap" : 2},
-          {"number": "2", "name": "Ewa", "laptime" : 3, "lap" : 3},
-          {"number": "2", "name": "Ewa", "laptime" : 3, "lap" : 4},
+          {"number": "2", "name": "Ewa", "laptime" : 3, "lap" : 1, "lapicon" : "0z4.png"},
+          {"number": "2", "name": "Ewa", "laptime" : 3, "lap" : 2, "lapicon" : "1z4.png"},
+          {"number": "2", "name": "Ewa", "laptime" : 3, "lap" : 3, "lapicon" : "2z4.png"},
+          {"number": "2", "name": "Ewa", "laptime" : 3, "lap" : 4, "lapicon" : "3z4.png"},
 
-          {"number": "3", "name": "Ewelina", "laptime" : 6, "lap" : 1},
-          {"number": "3", "name": "Ewelina", "laptime" : 6, "lap" : 2},
-          {"number": "3", "name": "Ewelina", "laptime" : 6, "lap" : 3},
-          {"number": "3", "name": "Ewelina", "laptime" : 6, "lap" : 4},
+          {"number": "3", "name": "Ewelina", "laptime" : 6, "lap" : 1, "lapicon" : "0z4.png"},
+          {"number": "3", "name": "Ewelina", "laptime" : 6, "lap" : 2, "lapicon" : "1z4.png"},
+          {"number": "3", "name": "Ewelina", "laptime" : 6, "lap" : 3, "lapicon" : "2z4.png"},
+          {"number": "3", "name": "Ewelina", "laptime" : 6, "lap" : 4, "lapicon" : "3z4.png"},
 
-          {"number": "4", "name": "Eugeniusz", "laptime" : 1, "lap" : 1},
-          {"number": "4", "name": "Eugeniusz", "laptime" : 1, "lap" : 2},
+          {"number": "4", "name": "Eugeniusz", "laptime" : 1, "lap" : 1, "lapicon" : "0z2.png"},
+          {"number": "4", "name": "Eugeniusz", "laptime" : 1, "lap" : 2, "lapicon" : "1z2.png"},
 
-          {"number": "5", "name": "Eloizy", "laptime" : 2, "lap" : 1},
-          {"number": "5", "name": "Eloizy", "laptime" : 2, "lap" : 2},
+          {"number": "5", "name": "Eloizy", "laptime" : 2, "lap" : 1, "lapicon" : "0z2.png"},
+          {"number": "5", "name": "Eloizy", "laptime" : 2, "lap" : 2, "lapicon" : "1z2.png"},
 
-          {"number": "6", "name": "Ela", "laptime" : 1, "lap" : 1},
-          {"number": "6", "name": "Ela", "laptime" : 1, "lap" : 2}
+          {"number": "6", "name": "Ela", "laptime" : 1, "lap" : 1, "lapicon" : "0z2.png"},
+          {"number": "6", "name": "Ela", "laptime" : 1, "lap" : 2, "lapicon" : "1z2.png"}
         ]
       }
   ]
@@ -165,7 +165,6 @@ function setup() {
   angleMode(DEGREES);
 
   arEkiden = jsonEkiden.ekiden;
-  console.log(arEkiden);
 
   for (let i = 0; i < arEkiden.length; i++) {
     run(i);
@@ -199,6 +198,9 @@ function draw() {
   if (positionC <= speedC) {drawRunner(positionC, speedC, 260, 237, 28, 95);};
   if (positionD <= speedD) {drawRunner(positionD, speedD, 240, 100, 0, 110);};
   if (positionE <= speedE) {drawRunner(positionE, speedE, 220, 0, 162, 205);};
+
+
+
   
 }
 
@@ -209,45 +211,56 @@ function drawRunner(position, speed, radius, red, green, blue) {
 }
 
 function run(teem) {
-  let stoper = new Date();
-  let divTxt = "<table><tr><td><img src=\"images/run.png\"></td><td>" 
-  + arEkiden[teem].crew[arCurrentRunners[teem]].number
-  + ". "
-  + arEkiden[teem].crew[arCurrentRunners[teem]].name 
-  + " " 
-  + "<img src=\"images/" 
-  + arEkiden[teem].crew[arCurrentRunners[teem]].lap 
-  + ".png\">"
-  + "</td></tr>"
-
   arCurrentRunners[teem] = arCurrentRunners[teem] + 1;
-  
-  divTxt = divTxt 
-  + "<tr><td><img src=\"images/wait.png\"></td><td>" 
-  + arEkiden[teem].crew[arCurrentRunners[teem]].number
-  + ". "
-  + arEkiden[teem].crew[arCurrentRunners[teem]].name 
-  + " "+ stoper.getMinutes() + ":" + stoper.getSeconds() 
-  + "</td></tr></table>";
 
   if (teem == 0) {
     positionStartA = new Date();
-    document.getElementById("divTeem0").innerHTML = divTxt;
   }
   if (teem == 1) {
     positionStartB = new Date();
-    document.getElementById("divTeem1").innerHTML = divTxt;
   }
   if (teem == 2) {
     positionStartC = new Date();
-    document.getElementById("divTeem2").innerHTML = divTxt;
   }
   if (teem == 3) {
     positionStartD = new Date();
-    document.getElementById("divTeem3").innerHTML = divTxt;
   }
   if (teem == 4) {
     positionStartE = new Date();
-    document.getElementById("divTeem4").innerHTML = divTxt;
   }
+
+  for (let i = 0; i < arEkiden.length; i++) {
+    document.getElementById("divTeem" + i).innerHTML = status(i);
+  }
+}
+
+function status(teem) {
+
+  let iCurrentRunner = arCurrentRunners[teem];
+  let iNextRunner = arCurrentRunners[teem] + 1;
+
+  let stoper = new Date();
+  let divTxt = "Finisz!!!";
+  
+  if (arCurrentRunners[teem] < 15) {
+
+  divTxt = "<table><tr><td><img src=\"images/run.png\"></td><td>" 
+  + arEkiden[teem].crew[iCurrentRunner].number
+  + ". "
+  + arEkiden[teem].crew[iCurrentRunner].name 
+  + " " 
+  + "<img src=\"images/" 
+  + arEkiden[teem].crew[iCurrentRunner].lapicon 
+  + "\">"
+  + "</td></tr>"
+  + "<tr><td><img src=\"images/wait.png\"></td><td>" 
+  + arEkiden[teem].crew[iNextRunner].number
+  + ". "
+  + arEkiden[teem].crew[iNextRunner].name 
+  //+ " "+ stoper.getMinutes() + ":" + stoper.getSeconds() 
+  + "</td></tr></table>";
+
+  
+  }
+  return divTxt;
 }
