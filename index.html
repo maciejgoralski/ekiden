@@ -4,69 +4,81 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>ekiden</title>
+	<title>Ekiden</title>
 	<script src="libraries/p5.js"></script>
 	<script src="libraries/p5.dom.js"></script>
-	<script src="main.js"></script>
+	<script src="libraries/EkidenEngine.js"></script>
+	<script src="libraries/EkidenDataBase.js"></script>
+	<script src="libraries/EkidenRunner.js"></script>
+	<link href="bootstrap.css" rel="stylesheet">
+	<link href="docs.min.css" rel="stylesheet">
+	<link rel="icon" href="images/favicon.ico">
+
 	<style>
-		.divButton {
-			border-radius: 60px;
-			font-family: Arial; 
-			text-align: left; 
-			vertical-align: middle;
-			margin: 10px 10px 10px -320px; 
-			padding: 10px 10px 10px 10px;
-			color:rgb(255, 255, 255); 
-			height: 60px; 
-			width: 60px; 
-			float:left; 
-			}
-		.divLabel {
-			font-family: Arial; 
-			text-align: left; 
-			vertical-align: middle;
-			margin: 20px 0px 0px 50px; 
-			padding: 5px 5px 5px 60px;
-			color:rgb(255, 255, 255); 
-			background-color: rgb(117, 121, 134);
-			height: 50px; 
-			width: 230px; 
-			float:left; 
-			}
 		.divPanel {
 			font-family: Arial; 
 			text-align: left; 
-			vertical-align: middle;
-			color:rgb(255, 255, 255); 
-			background-color: rgb(255, 255, 255);
-			height: 100px; 
-			width: 350px; 
-			float:left; 
+			vertical-align: middle;	
+			margin: 10px 10px 10px 10px; 
+			padding: 5px 5px 5px 5px;
+			background-color: #ffffff;
+			width: 400px; 
+			height: 400px; 
+			float: left; 
 			}
+			
+		.divActions {
+			text-align: center;
+			margin: 60px; 
+		}
 	</style>
 </head>
 <body>
-	<div id="divCanvas"></div>
+	<div id="divCanvas" class="divPanel"></div>
+
 	<div class="divPanel">
-		<div id="divTeem0" class="divLabel"></div>
-		<div onclick="run(0)" onTouchStart="run(0)" class="divButton" style="background-color: rgb(0, 220, 0)"></div>
+		<table class="table table-sm table-striped table-bordered-column">
+			<colgroup><col width="40px"><col><col width="100px"><col width="100px"><col width="100px"></colgroup>
+			<thead class="thead-inverse"><tr><th>#</th><th>Biegacz</th><th>Postęp</th><th>Start</th><th>Pędkość</th></tr></thead>
+			<tbody id="tbodyTeam0"></tbody>
+		</table>
+		<div class="divActions"><button type="button" class="btn btn-secondary" onclick="run(0)" onTouchStart="run(0)">START</button></div>
 	</div>
-	<div class="divPanel">	
-		<div id="divTeem1" class="divLabel"></div>
-		<div onclick="run(1)" onTouchStart="run(1)" class="divButton" style="background-color: rgb(255, 93, 0)"></div>
-	</div>
+
 	<div class="divPanel">
-		<div id="divTeem2" class="divLabel"></div>
-		<div onclick="run(2)" onTouchStart="run(2)" class="divButton" style="background-color: rgb(237, 28, 95)"></div>
+		<table class="table table-sm table-striped table-bordered-column">
+			<colgroup><col width="40px"><col><col width="100px"><col width="100px"><col width="100px"></colgroup>
+			<thead class="thead-inverse"><tr><th>#</th><th>Biegacz</th><th>Postęp</th><th>Start</th><th>Pędkość</th></tr></thead>
+			<tbody id="tbodyTeam1"></tbody>
+		</table>
+		<div class="divActions"><button type="button" class="btn btn-secondary" onclick="run(1)" onTouchStart="run(1)">START</button></div>
 	</div>
+
 	<div class="divPanel">
-		<div id="divTeem3" class="divLabel"></div>
-		<div onclick="run(3)" onTouchStart="run(3)" class="divButton" style="background-color: rgb(100, 0, 110)"></div>
+		<table class="table table-sm table-striped table-bordered-column">
+			<colgroup><col width="40px"><col><col width="100px"><col width="100px"><col width="100px"></colgroup>
+			<thead class="thead-inverse"><tr><th>#</th><th>Biegacz</th><th>Postęp</th><th>Start</th><th>Pędkość</th></tr></thead>
+			<tbody id="tbodyTeam2"></tbody>
+		</table>
+		<div class="divActions"><button type="button" class="btn btn-secondary" onclick="run(2)" onTouchStart="run(2)">START</button></div>
 	</div>
+
 	<div class="divPanel">
-		<div id="divTeem4" class="divLabel"></div>
-		<div onclick="run(4)" onTouchStart="run(4)" class="divButton" style="background-color: rgb(0, 162, 205)"></div>
+		<table class="table table-sm table-striped table-bordered-column">
+			<colgroup><col width="40px"><col><col width="100px"><col width="100px"><col width="100px"></colgroup>
+			<thead class="thead-inverse"><tr><th>#</th><th>Biegacz</th><th>Postęp</th><th>Start</th><th>Pędkość</th></tr></thead>
+			<tbody id="tbodyTeam3"></tbody>
+		</table>
+		<div class="divActions"><button type="button" class="btn btn-secondary" onclick="run(3)" onTouchStart="run(3)">START</button></div>
 	</div>
-	<div id="divTable"></div>
+
+	<div class="divPanel">
+		<table class="table table-sm table-striped table-bordered-column">
+			<colgroup><col width="40px"><col><col width="100px"><col width="100px"><col width="100px"></colgroup>
+			<thead class="thead-inverse"><tr><th>#</th><th>Biegacz</th><th>Postęp</th><th>Start</th><th>Pędkość</th></tr></thead>
+			<tbody id="tbodyTeam4"></tbody>
+		</table>
+		<div class="divActions"><button type="button" class="btn btn-secondary" onclick="run(4)" onTouchStart="run(4)">START</button></div>
+	</div>
 </body>
 </html>
