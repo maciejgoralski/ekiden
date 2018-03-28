@@ -9,7 +9,7 @@ let arEkiden;
 
 function setup() {
 
-  var myCanvas = createCanvas(350, 350);
+  var myCanvas = createCanvas(290, 290);
   myCanvas.parent("divCanvas");
 
   angleMode(DEGREES);
@@ -30,7 +30,7 @@ function setup() {
 function draw() {
 
   background(255);
-  translate(195, 195); //środek
+  translate(145, 145); //środek
   rotate(-90);
   strokeWeight(8);
   noFill();
@@ -40,7 +40,9 @@ function draw() {
   for (let i = 0; i < arEkiden.length; i++) {
     position[i] = (positionNow - positionStart[i]) / 1000;
     speed[i] = 60 * arEkiden[i].crew[arCurrentRunners[i]].speed;
-    if (position[i] <= speed[i]) {drawRunner(position[i], speed[i], 300 - i*20, colorTeam[i]);};
+    if (position[i] <= speed[i]) {
+      drawRunner(position[i], speed[i], 250 - i*20, colorTeam[i]);
+    };
   }
 
 }
@@ -69,21 +71,21 @@ function addMember(teem, number, name, laps, progress, start, speed) {
   member += "<td>";
   if (number == arCurrentRunners[teem]) {
     for (let i = 0; i < progress; i++) {
-      member += " <img src=\"images/doneW.png\">";
+      member += " <img src=\"images/doneW.svg\">";
     };
     for (let i = 0; i < laps - progress; i++) {
-      member += " <img src=\"images/todoW.png\">";
+      member += " <img src=\"images/todoW.svg\">";
     };
   } else {
     for (let i = 0; i < progress; i++) {
-      member += " <img src=\"images/doneB.png\">";
+      member += " <img src=\"images/doneB.svg\">";
     };
     for (let i = 0; i < laps - progress; i++) {
-      member += " <img src=\"images/todoB.png\">";
+      member += " <img src=\"images/todoB.svg\">";
     };
   }
   member += "</td><td>" + start + "</td>";
-  member += "<td>" + speed + "</td></tr>";
+ // member += "<td>" + speed + "</td></tr>";
 
   document.getElementById("tbodyTeam" + teem).innerHTML += member;
 
