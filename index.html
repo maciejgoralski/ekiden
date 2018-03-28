@@ -16,69 +16,91 @@
 
 	<style>
 		.divPanel {
-			font-family: Arial; 
-			text-align: left; 
 			vertical-align: middle;	
 			margin: 10px 10px 10px 10px; 
 			padding: 5px 5px 5px 5px;
 			background-color: #ffffff;
-			width: 400px; 
-			height: 400px; 
+			width: 300px; 
+			height: 300px; 
 			float: left; 
 			}
 			
 		.divActions {
 			text-align: center;
-			margin: 60px; 
+			margin: 20px; 
 		}
+
+		.divLog {
+			vertical-align: middle;	
+			margin: 10px 10px 10px 10px; 
+			padding: 5px 5px 5px 5px;
+			background-color: #ffffff;
+			width: 300px; 
+			float: left; 
+			}
 	</style>
 </head>
 <body>
 	<div id="divCanvas" class="divPanel"></div>
 
 	<div class="divPanel">
+		<div class="divActions"><button type="button" class="btn btn-secondary" onclick="run(0)" onTouchStart="run(0)" style="background-color: #00DC00;"><img src="images/flag.png"></button></div>
+		<div class="divActions"><button type="button" class="btn btn-secondary" onclick="run(1)" onTouchStart="run(1)" style="background-color: #FF9900;"><img src="images/flag.png"></button></div>
+		<div class="divActions"><button type="button" class="btn btn-secondary" onclick="run(2)" onTouchStart="run(2)" style="background-color: #ED1C5F;"><img src="images/flag.png"></button></div>
+		<div class="divActions"><button type="button" class="btn btn-secondary" onclick="run(3)" onTouchStart="run(3)" style="background-color: #64006E;"><img src="images/flag.png"></button></div>
+		<div class="divActions"><button type="button" class="btn btn-secondary" onclick="run(4)" onTouchStart="run(4)" style="background-color: #00A2CD;"><img src="images/flag.png"></button></div>
+	</div>
+
+	<div class="divPanel">
 		<table class="table table-sm table-striped table-bordered-column">
-			<colgroup><col width="40px"><col><col width="100px"><col width="100px"><col width="100px"></colgroup>
-			<thead class="thead-inverse"><tr><th>#</th><th>Biegacz</th><th>Postęp</th><th>Start</th><th>Pędkość</th></tr></thead>
+			<colgroup><col width="40px"><col><col width="100px"><col></colgroup>
+			<thead class="thead-inverse"><tr><th>#</th><th>Biegacz</th><th>Postęp</th><th>Start</th></tr></thead>
 			<tbody id="tbodyTeam0"></tbody>
 		</table>
-		<div class="divActions"><button type="button" class="btn btn-secondary" onclick="run(0)" onTouchStart="run(0)">START</button></div>
 	</div>
 
 	<div class="divPanel">
 		<table class="table table-sm table-striped table-bordered-column">
-			<colgroup><col width="40px"><col><col width="100px"><col width="100px"><col width="100px"></colgroup>
-			<thead class="thead-inverse"><tr><th>#</th><th>Biegacz</th><th>Postęp</th><th>Start</th><th>Pędkość</th></tr></thead>
+			<colgroup><col width="40px"><col><col width="100px"><col></colgroup>
+			<thead class="thead-inverse"><tr><th>#</th><th>Biegacz</th><th>Postęp</th><th>Start</th></tr></thead>
 			<tbody id="tbodyTeam1"></tbody>
 		</table>
-		<div class="divActions"><button type="button" class="btn btn-secondary" onclick="run(1)" onTouchStart="run(1)">START</button></div>
 	</div>
 
 	<div class="divPanel">
 		<table class="table table-sm table-striped table-bordered-column">
-			<colgroup><col width="40px"><col><col width="100px"><col width="100px"><col width="100px"></colgroup>
-			<thead class="thead-inverse"><tr><th>#</th><th>Biegacz</th><th>Postęp</th><th>Start</th><th>Pędkość</th></tr></thead>
+			<colgroup><col width="40px"><col><col width="100px"><col></colgroup>
+			<thead class="thead-inverse"><tr><th>#</th><th>Biegacz</th><th>Postęp</th><th>Start</th></tr></thead>
 			<tbody id="tbodyTeam2"></tbody>
 		</table>
-		<div class="divActions"><button type="button" class="btn btn-secondary" onclick="run(2)" onTouchStart="run(2)">START</button></div>
 	</div>
 
 	<div class="divPanel">
 		<table class="table table-sm table-striped table-bordered-column">
-			<colgroup><col width="40px"><col><col width="100px"><col width="100px"><col width="100px"></colgroup>
-			<thead class="thead-inverse"><tr><th>#</th><th>Biegacz</th><th>Postęp</th><th>Start</th><th>Pędkość</th></tr></thead>
+			<colgroup><col width="40px"><col><col width="100px"><col></colgroup>
+			<thead class="thead-inverse"><tr><th>#</th><th>Biegacz</th><th>Postęp</th><th>Start</th></tr></thead>
 			<tbody id="tbodyTeam3"></tbody>
 		</table>
-		<div class="divActions"><button type="button" class="btn btn-secondary" onclick="run(3)" onTouchStart="run(3)">START</button></div>
 	</div>
 
 	<div class="divPanel">
 		<table class="table table-sm table-striped table-bordered-column">
-			<colgroup><col width="40px"><col><col width="100px"><col width="100px"><col width="100px"></colgroup>
-			<thead class="thead-inverse"><tr><th>#</th><th>Biegacz</th><th>Postęp</th><th>Start</th><th>Pędkość</th></tr></thead>
+			<colgroup><col width="40px"><col><col width="100px"><col></colgroup>
+			<thead class="thead-inverse"><tr><th>#</th><th>Biegacz</th><th>Postęp</th><th>Start</th></tr></thead>
 			<tbody id="tbodyTeam4"></tbody>
 		</table>
-		<div class="divActions"><button type="button" class="btn btn-secondary" onclick="run(4)" onTouchStart="run(4)">START</button></div>
 	</div>
+
+	<div class="divLog">
+		<table class="table table-sm table-striped table-bordered-column">
+			<colgroup><col width="40px"><col><col width="100px"><col></colgroup>
+			<thead class="thead-inverse"><tr><th>#</th><th>Biegacz</th><th>Czas</th></tr></thead>
+			<tbody id="tbodyTeam4"></tbody>
+			<tr><td>B1</td><td>Sylwia 1/3</td><td>12:51:20</td></tr>
+			<tr><td>A1</td><td>Maciek 1/3</td><td>13:33:43</td></tr>
+			<tr><td>B1</td><td>Sylwia 2/3</td><td>13:44:52</td></tr>
+		</table>
+	</div>
+
 </body>
 </html>
