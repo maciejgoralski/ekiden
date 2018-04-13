@@ -7,9 +7,10 @@
 	<title>Ekiden</title>
 	<script src="libraries/p5.js"></script>
 	<script src="libraries/p5.dom.js"></script>
-	<script src="libraries/EkidenEngine.js"></script>
-	<script src="libraries/EkidenDataBase.js"></script>
-	<script src="libraries/EkidenRunner.js"></script>
+	<script src="Main.js"></script>
+	<script src="DataBase.js"></script>
+	<script src="Ekiden.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
 	<link href="bootstrap.css" rel="stylesheet">
 	<link href="docs.min.css" rel="stylesheet">
 	<link rel="icon" href="images/favicon.ico">
@@ -27,7 +28,12 @@
 			
 		.divActions {
 			text-align: center;
-			margin: 20px; 
+			margin: 25px 20px 0px 50px; 
+			height: 60px; 
+			width: 60px;
+			padding: 20px;
+			border-radius: 60px;
+			float: left; 
 		}
 		
 	</style>
@@ -35,12 +41,7 @@
 <body>
 	<div id="divCanvas" class="divPanel"></div>
 
-	<div class="divPanel">
-		<div class="divActions"><button type="button" class="btn btn-secondary" onclick="run(0)" onTouchStart="run(0)" style="background-color: #00DC00;"><img src="images/flag.svg"></button></div>
-		<div class="divActions"><button type="button" class="btn btn-secondary" onclick="run(1)" onTouchStart="run(1)" style="background-color: #FF9900;"><img src="images/flag.svg"></button></div>
-		<div class="divActions"><button type="button" class="btn btn-secondary" onclick="run(2)" onTouchStart="run(2)" style="background-color: #ED1C5F;"><img src="images/flag.svg"></button></div>
-		<div class="divActions"><button type="button" class="btn btn-secondary" onclick="run(3)" onTouchStart="run(3)" style="background-color: #64006E;"><img src="images/flag.svg"></button></div>
-		<div class="divActions"><button type="button" class="btn btn-secondary" onclick="run(4)" onTouchStart="run(4)" style="background-color: #00A2CD;"><img src="images/flag.svg"></button></div>
+	<div id="divActions">
 	</div>
 
 	<div class="divPanel">
