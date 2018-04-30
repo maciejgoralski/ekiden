@@ -1,83 +1,77 @@
 let jsonEkiden = {
-  "ekiden": [
+  "teams": [
       {
-        "title": "Drużyna A", 
-        "current": "0",
-        "lapstart": "0",
+        "index": 0,
         "color": "#00DC00", 
-        "crew": [
-          {"number": "1", "speed" : 3, "laps" : 3, "progress" : 0, "name": "Alicja"},
-          {"number": "2", "speed" : 1, "laps" : 4, "progress" : 0, "name": "Agnieszka"},
-          {"number": "3", "speed" : 6, "laps" : 4, "progress" : 0, "name": "Ania"},
-          {"number": "4", "speed" : 5, "laps" : 2, "progress" : 0, "name": "Arek"},
-          {"number": "5", "speed" : 1, "laps" : 2, "progress" : 0, "name": "Antoni"},
-          {"number": "6", "speed" : 2, "laps" : 2, "progress" : 0, "name": "Agata"}
+        "running": 0,
+        "runners": [
+          {"number": "1", "name": "Karol", "laps": [{"speed" : 600, "completed": 0},{"speed" : 600, "completed": 0},{"speed" : 600, "completed": 0}]},
+          {"number": "2", "name": "Piotr", "laps": [{"speed" : 645, "completed": 0},{"speed" : 645, "completed": 0},{"speed" : 645, "completed": 0},{"speed" : 645, "completed": 0}]},
+          {"number": "3", "name": "Szymon", "laps": [{"speed" : 675, "completed": 0},{"speed" : 675, "completed": 0},{"speed" : 675, "completed": 0},{"speed" : 675, "completed": 0}]},
+          {"number": "4", "name": "Basia", "laps": [{"speed" : 960, "completed": 0},{"speed" : 960, "completed": 0}]},
+          {"number": "5", "name": "Alicja", "laps": [{"speed" : 750, "completed": 0},{"speed" : 750, "completed": 0}]},
+          {"number": "6", "name": "Łukasz", "laps": [{"speed" : 750, "completed": 0},{"speed" : 750, "completed": 0}]}
         ]
       },
       {
-        "title": "Drużyna B", 
-        "current": "0",
-        "lapstart": "0",
-        "color": "#FF9900",
-        "crew": [
-          {"number": "1", "speed" : 1, "laps" : 3, "progress" : 0, "name": "Bartosz"},
-          {"number": "2", "speed" : 2, "laps" : 4, "progress" : 0, "name": "Basia"},
-          {"number": "3", "speed" : 2, "laps" : 4, "progress" : 0, "name": "Beata"},
-          {"number": "4", "speed" : 3, "laps" : 2, "progress" : 0, "name": "Baca"},
-          {"number": "5", "speed" : 3, "laps" : 2, "progress" : 0, "name": "Barbara"},
-          {"number": "6", "speed" : 4, "laps" : 2, "progress" : 0, "name": "Bolek"}
+        "index": 1,
+        "color": "#FF9900", 
+        "running": 0,
+        "runners": [
+          {"number": "1", "name": "Maciek", "laps": [{"speed" : 700, "completed": 0},{"speed" : 700, "completed": 0},{"speed" : 700, "completed": 0}]},
+          {"number": "2", "name": "Radek", "laps": [{"speed" : 675, "completed": 0},{"speed" : 675, "completed": 0},{"speed" : 675, "completed": 0},{"speed" : 675, "completed": 0}]},
+          {"number": "3", "name": "Oleksii", "laps": [{"speed" : 750, "completed": 0},{"speed" : 750, "completed": 0},{"speed" : 750, "completed": 0},{"speed" : 750, "completed": 0}]},
+          {"number": "4", "name": "Ela", "laps": [{"speed" : 930, "completed": 0},{"speed" : 930, "completed": 0}]},
+          {"number": "5", "name": "Marcin", "laps": [{"speed" : 750, "completed": 0},{"speed" : 750, "completed": 0}]},
+          {"number": "6", "name": "Justyna", "laps": [{"speed" : 900, "completed": 0},{"speed" : 900, "completed": 0}]}
         ]
       },
       {
-        "title": "Drużyna C",
-        "current": "0",
-        "lapstart": "0",
-        "color": "#ED1C5F",
-        "crew": [
-          {"number": "1", "speed" : 4, "laps" : 3, "progress" : 0, "name": "Cecylia"},
-          {"number": "2", "speed" : 4, "laps" : 4, "progress" : 0, "name": "Czarek"},
-          {"number": "3", "speed" : 4, "laps" : 4, "progress" : 0, "name": "Cezary"},
-          {"number": "4", "speed" : 3, "laps" : 2, "progress" : 0, "name": "Cylina"},
-          {"number": "5", "speed" : 1, "laps" : 2, "progress" : 0, "name": "Clara"},
-          {"number": "6", "speed" : 3, "laps" : 2, "progress" : 0, "name": "Cedmin"}
+        "index": 2,
+        "color": "#ED1C5F", 
+        "running": 0,
+        "runners": [
+          {"number": "1", "name": "Mariusz", "laps": [{"speed" : 740, "completed": 0},{"speed" : 740, "completed": 0},{"speed" : 740, "completed": 0}]},
+          {"number": "2", "name": "Mateusz", "laps": [{"speed" : 750, "completed": 0},{"speed" : 750, "completed": 0},{"speed" : 750, "completed": 0},{"speed" : 750, "completed": 0}]},
+          {"number": "3", "name": "Łukasz", "laps": [{"speed" : 810, "completed": 0},{"speed" : 810, "completed": 0},{"speed" : 810, "completed": 0},{"speed" : 810, "completed": 0}]},
+          {"number": "4", "name": "Krzysiek", "laps": [{"speed" : 840, "completed": 0},{"speed" : 840, "completed": 0}]},
+          {"number": "5", "name": "Agnieszka", "laps": [{"speed" : 960, "completed": 0},{"speed" : 960, "completed": 0}]},
+          {"number": "6", "name": "Monika", "laps": [{"speed" : 1200, "completed": 0},{"speed" : 1200, "completed": 0}]}
         ]
       },
       {
-        "title": "Drużyna D", 
-        "current": "0",
-        "lapstart": "0",
-        "color": "#64006E",
-        "crew": [
-          {"number": "1", "speed" : 1, "laps" : 3, "progress" : 0, "name": "Darek"},
-          {"number": "2", "speed" : 2, "laps" : 4, "progress" : 0, "name": "Damian"},
-          {"number": "3", "speed" : 4, "laps" : 4, "progress" : 0, "name": "Dorota"},
-          {"number": "4", "speed" : 2, "laps" : 2, "progress" : 0, "name": "Dagmara"},
-          {"number": "5", "speed" : 5, "laps" : 2, "progress" : 0, "name": "Doris"},
-          {"number": "6", "speed" : 5, "laps" : 2, "progress" : 0, "name": "Daniel"}
+        "index": 3,
+        "color": "#64006E", 
+        "running": 0,
+        "runners": [
+          {"number": "1", "name": "Sylwia", "laps": [{"speed" : 860, "completed": 0},{"speed" : 860, "completed": 0},{"speed" : 860, "completed": 0}]},
+          {"number": "2", "name": "Piotr", "laps": [{"speed" : 870, "completed": 0},{"speed" : 870, "completed": 0},{"speed" : 870, "completed": 0},{"speed" : 870, "completed": 0}]},
+          {"number": "3", "name": "Sławek", "laps": [{"speed" : 855, "completed": 0},{"speed" : 855, "completed": 0},{"speed" : 855, "completed": 0},{"speed" : 855, "completed": 0}]},
+          {"number": "4", "name": "Asia", "laps": [{"speed" : 1200, "completed": 0},{"speed" : 1200, "completed": 0}]},
+          {"number": "5", "name": "Tomek", "laps": [{"speed" : 750, "completed": 0},{"speed" : 750, "completed": 0}]},
+          {"number": "6", "name": "Daniel", "laps": [{"speed" : 750, "completed": 0},{"speed" : 750, "completed": 0}]}
         ]
       },
       {
-        "title": "Drużyna E", 
-        "current": "0",
-        "lapstart": "0",
-        "color": "#00A2CD",
-        "crew": [
-          {"number": "1", "speed" : 2, "laps" : 3, "progress" : 0, "name": "Edward"},
-          {"number": "2", "speed" : 3, "laps" : 4, "progress" : 0, "name": "Ewa"},
-          {"number": "3", "speed" : 3, "laps" : 4, "progress" : 0, "name": "Ewelina"},
-          {"number": "4", "speed" : 3, "laps" : 2, "progress" : 0, "name": "Eugeniusz"},
-          {"number": "5", "speed" : 3, "laps" : 2, "progress" : 0, "name": "Eloizy"},
-          {"number": "6", "speed" : 1, "laps" : 2, "progress" : 0, "name": "Ela"}
+        "index": 4,
+        "color": "#00A2CD", 
+        "running": 0,
+        "runners": [
+          {"number": "1", "name": "Irek", "laps": [{"speed" : 740, "completed": 0},{"speed" : 740, "completed": 0},{"speed" : 740, "completed": 0}]},
+          {"number": "2", "name": "Adam", "laps": [{"speed" : 900, "completed": 0},{"speed" : 900, "completed": 0},{"speed" : 900, "completed": 0},{"speed" : 900, "completed": 0}]},
+          {"number": "3", "name": "Jarek", "laps": [{"speed" : 630, "completed": 0},{"speed" : 630, "completed": 0},{"speed" : 630, "completed": 0},{"speed" : 630, "completed": 0}]},
+          {"number": "4", "name": "Marek", "laps": [{"speed" : 750, "completed": 0},{"speed" : 750, "completed": 0}]},
+          {"number": "5", "name": "Sebastian", "laps": [{"speed" : 750, "completed": 0},{"speed" : 750, "completed": 0}]},
+          {"number": "6", "name": "Cristina", "laps": [{"speed" : 750, "completed": 0},{"speed" : 750, "completed": 0}]}
         ]
       }
   ]
 };
 
-
 class EkidenDataBase {
     constructor() {
         this.json = jsonEkiden;
-
+        
         let config = {
           apiKey: "AIzaSyB9FgBj3eH-HZw8cWrbtx3r_Z5_S6RKpmI",
           authDomain: "test-e5d7a.firebaseapp.com",
@@ -90,16 +84,33 @@ class EkidenDataBase {
         
         this.database = firebase.database();
 
+        let ref = this.database.ref('ekiden');
+        ref.on('value', this.select, this.error);
+        
     }
 
-    select(){
-      let jsonSelect = "";
-      return jsonSelect;
+    defoult(){
+      console.log("Domyślny");
+      return this.json;
     }
-
+    
     update(jsonUpdate){
-      console.log("update");
-      //let ref = this.database.ref('ekiden');
-      //ref.push(jsonUpdate);
+      console.log("Aktualizacja");
+      let ref = this.database.ref('ekiden');
+      ref.push(jsonUpdate);
+    }
+
+    select(data) {
+      console.log("Odczyt");
+      let dEkiden = data.val();
+      let kEkiden = Object.keys(dEkiden);
+      let sLast = dEkiden[kEkiden[kEkiden.length-1]];
+      let jsonEkiden = sLast; 
+      refreshTeams(jsonEkiden.teams);
+    }
+    
+    error(err) {
+      console.log("Error: " + err);
     }
 }
+

@@ -1,23 +1,40 @@
 let oEkiden;
+let dbEkiden;
+
+function refreshTeams(arEkiden) {
+  oEkiden.load(arEkiden);
+
+  for (let t of oEkiden.teams) {
+    try {
+      document.getElementById(`divActions${t.index}`).style.backgroundColor = t.color;
+    } catch(err) {}
+    document.getElementById("tbodyTeam" + t.index).innerHTML = "";
+     for (let r of t.runners) {
+       addMember(t.index, r.number, r.name, r.laps.length, r.progress(), r.start(), t.current(), t.color);
+     }
+  }
+}
 
 function setup() {
+  let sParams = new URLSearchParams(document.location.search.substring(1));
+  let sAdmin = sParams.get("admin");  
+  let sDefoult = sParams.get("defoult");
 
   var myCanvas = createCanvas(290, 290);
   myCanvas.parent("divCanvas");
 
   angleMode(DEGREES);
-  
+
+  dbEkiden = new EkidenDataBase();    
   oEkiden = new Ekiden();
-  oEkiden.load();
 
-  addActionPanel();
+  if (sAdmin == 1) { addActionPanel(); }
 
-  for (let t of oEkiden.teams) {
-    addButton(t.index, t.color);
-    for (let r of t.runners) {
-      addMember(t.index, r.number, r.name, r.laps, r.progress, r.start, 0, t.color);
-    }
+  if (sDefoult == 1) {
+    let arEkiden = dbEkiden.defoult();
+    dbEkiden.update(arEkiden);
   }
+
 }
 
 function draw() {
@@ -31,8 +48,8 @@ function draw() {
   let radius = 251;
 
   for (let t of oEkiden.teams) {
-    if (t.getCurrentPosition() <= t.getCurrentSpeed()) {
-      drawRunner(t.getCurrentPosition(), t.getCurrentSpeed(), radius, t.color);
+    if (t.position() <= t.speed()) {
+      drawRunner(t.position(), t.speed(), radius, t.color);
     }
     radius = radius - 20;
   }
@@ -46,32 +63,38 @@ function drawRunner(position, speed, radius, color) {
 }
 
 function run(teem) {
+  try {
+    document.getElementById(`divActions${teem}`).style.backgroundColor = "#999999";
+  } catch(err) {}
+
   let oTeam = oEkiden.teams[teem];
   oTeam.run();
-  let oRuner = oTeam.runners[oTeam.current];
-  document.getElementById("tbodyTeam" + oTeam.index).innerHTML = "";
 
-  for (let r of oTeam.runners) {
-    addMember(oTeam.index, r.number, r.name, r.laps, r.progress, r.start, oRuner.number, oTeam.color);
-  }
-
-  oEkiden.save();
-  
-  //use strict 
+  dbEkiden.update(oEkiden);
 }
 
 function addActionPanel() {
   document.getElementById("divActions").innerHTML = `<div id="divButtons" class="divPanel"></div>`;
-}
-
-function addButton(index, color) {
-  document.getElementById("divButtons").innerHTML += `<div class="divActions" onclick="run(${index})" onTouchStart="run(${index})" style="background-color: ${color};"><img src="images/flag.svg"></div>`;
+  for (let i = 0; i < 5; i++) {
+    document.getElementById("divButtons").innerHTML += `<div id="divActions${i}" class="divActions" onclick="run(${i})" onTouchStart="run(${i})" style="background-color: #999999;"><img src="images/flag.svg"></div>`;
+  }
 }
 
 function addMember(teem, number, name, laps, progress, start, current, color) {
 
   let memberstyle = "";
   let memberprogress = "";
+  let h = "--", m = "--", s = "--";
+
+  try {
+    h = start.getHours();     if (h<10) { h = "0" + h };
+    m = start.getMinutes();   if (m<10) { m = "0" + m };
+    s = start.getSeconds();   if (s<10) { s = "0" + s };
+  }
+  catch(err) {
+  }
+
+  let memberstart = h + ":" + m + ":" + s;
 
   if (number == current) {
     memberstyle = ` style="color: #ffffff; background-color: ${color}"`;
@@ -92,6 +115,6 @@ function addMember(teem, number, name, laps, progress, start, current, color) {
     };
   }
 
-  document.getElementById("tbodyTeam" + teem).innerHTML += `<tr id="trTeam${teem}Member${number}"${memberstyle}><th scope="row">${number}</th><td>${name}</td><td>${memberprogress}</td><td>${start}</td>`;
+  document.getElementById("tbodyTeam" + teem).innerHTML += `<tr id="trTeam${teem}Member${number}"${memberstyle}><th scope="row">${number}</th><td>${name}</td><td>${memberprogress}</td><td>${memberstart}</td>`;
 
 }
