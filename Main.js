@@ -7,6 +7,7 @@ function refreshTeams(arEkiden) {
   for (let t of oEkiden.teams) {
     try {
       document.getElementById(`divActions${t.index}`).style.backgroundColor = t.color;
+      document.getElementById(`divActions${t.index}`).innerHTML = t.current() + "/" + t.lap();
     } catch(err) {}
     document.getElementById("tbodyTeam" + t.index).innerHTML = "";
      for (let r of t.runners) {
@@ -46,10 +47,20 @@ function draw() {
   noFill();
 
   let radius = 251;
+  let position = 0;
+  let speed = 0;
 
   for (let t of oEkiden.teams) {
-    if (t.position() <= t.speed()) {
-      drawRunner(t.position(), t.speed(), radius, t.color);
+    try {
+      position = t.position();
+      speed = t.speed();
+    } catch(err) {
+      position = 0;
+      speed = 0;
+    }
+
+    if (position <= speed) {
+      drawRunner(position, speed, radius, t.color);
     }
     radius = radius - 20;
   }
@@ -65,19 +76,21 @@ function drawRunner(position, speed, radius, color) {
 function run(teem) {
   try {
     document.getElementById(`divActions${teem}`).style.backgroundColor = "#999999";
+    document.getElementById(`divActions${teem}`).innerHTML = `1<img src="images/flag.svg">3`
+    
   } catch(err) {}
 
   let oTeam = oEkiden.teams[teem];
   oTeam.run();
-
   dbEkiden.update(oEkiden);
 }
 
 function addActionPanel() {
   document.getElementById("divActions").innerHTML = `<div id="divButtons" class="divPanel"></div>`;
   for (let i = 0; i < 5; i++) {
-    document.getElementById("divButtons").innerHTML += `<div id="divActions${i}" class="divActions" onclick="run(${i})" onTouchStart="run(${i})" style="background-color: #999999;"><img src="images/flag.svg"></div>`;
-  }
+    //document.getElementById("divButtons").innerHTML += `<div id="divActions${i}" class="divActions" onclick="run(${i})" onTouchStart="run(${i})" style="background-color: #999999;"><img src="images/flag.svg"></div>`;
+    document.getElementById("divButtons").innerHTML += `<div id="divActions${i}" class="divActions" onclick="run(${i})" onTouchStart="run(${i})" style="background-color: #999999;">1/0</div>`;
+  }  
 }
 
 function addMember(teem, number, name, laps, progress, start, current, color) {

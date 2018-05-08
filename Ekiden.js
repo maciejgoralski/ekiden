@@ -62,6 +62,21 @@ class Team {
     return iCurrent;
   }
 
+  lap() {
+    let iLap = 1;
+    let iCompleted = 0;
+    for (let r of this.runners) {
+      for (let l of r.laps) {
+        if (l.completed == 0) {
+          return iLap;
+        }
+        iLap++
+      }
+      iLap = 1;
+    }
+    return iLap;
+  }
+
   speed() {
     return this.m_speed;
   }
