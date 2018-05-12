@@ -5,10 +5,10 @@ let jsonEkiden = {
         "color": "#ED1C5F", 
         "running": 0,
         "runners": [
-          {"number": "1", "name": "Karol", "laps": [{"speed" : 600, "completed": 0},{"speed" : 600, "completed": 0},{"speed" : 600, "completed": 0}]},
+          {"number": "1", "name": "Karol", "laps": [{"speed" : 580, "completed": 0},{"speed" : 580, "completed": 0},{"speed" : 580, "completed": 0}]},
           {"number": "2", "name": "Piotr", "laps": [{"speed" : 645, "completed": 0},{"speed" : 645, "completed": 0},{"speed" : 645, "completed": 0},{"speed" : 645, "completed": 0}]},
           {"number": "3", "name": "Szymon", "laps": [{"speed" : 675, "completed": 0},{"speed" : 675, "completed": 0},{"speed" : 675, "completed": 0},{"speed" : 675, "completed": 0}]},
-          {"number": "4", "name": "Basia", "laps": [{"speed" : 960, "completed": 0},{"speed" : 960, "completed": 0}]},
+          {"number": "4", "name": "Basia", "laps": [{"speed" : 900, "completed": 0},{"speed" : 900, "completed": 0}]},
           {"number": "5", "name": "Dorota", "laps": [{"speed" : 900, "completed": 0},{"speed" : 900, "completed": 0}]},
           {"number": "6", "name": "Kamil", "laps": [{"speed" : 750, "completed": 0},{"speed" : 750, "completed": 0}]}
         ]
@@ -23,7 +23,7 @@ let jsonEkiden = {
           {"number": "3", "name": "Cristina", "laps": [{"speed" : 825, "completed": 0},{"speed" : 825, "completed": 0},{"speed" : 825, "completed": 0},{"speed" : 825, "completed": 0}]},
           {"number": "4", "name": "Ela", "laps": [{"speed" : 930, "completed": 0},{"speed" : 930, "completed": 0}]},
           {"number": "5", "name": "Marcin", "laps": [{"speed" : 750, "completed": 0},{"speed" : 750, "completed": 0}]},
-          {"number": "6", "name": "Mateusz", "laps": [{"speed" : 690, "completed": 0},{"speed" : 690, "completed": 0}]}
+          {"number": "6", "name": "Mateusz", "laps": [{"speed" : 750, "completed": 0},{"speed" : 750, "completed": 0}]}
         ]
       },
       {
@@ -59,7 +59,7 @@ let jsonEkiden = {
         "runners": [
           {"number": "1", "name": "Adam", "laps": [{"speed" : 760, "completed": 0},{"speed" : 760, "completed": 0},{"speed" : 760, "completed": 0}]},
           {"number": "2", "name": "Michał", "laps": [{"speed" : 825, "completed": 0},{"speed" : 825, "completed": 0},{"speed" : 825, "completed": 0},{"speed" : 825, "completed": 0}]},
-          {"number": "3", "name": "Piotr", "laps": [{"speed" : 750, "completed": 0},{"speed" : 750, "completed": 0},{"speed" : 750, "completed": 0},{"speed" : 750, "completed": 0}]},
+          {"number": "3", "name": "Piotr", "laps": [{"speed" : 780, "completed": 0},{"speed" : 780, "completed": 0},{"speed" : 780, "completed": 0},{"speed" : 780, "completed": 0}]},
           {"number": "4", "name": "Marek", "laps": [{"speed" : 750, "completed": 0},{"speed" : 750, "completed": 0}]},
           {"number": "5", "name": "Sebastian", "laps": [{"speed" : 750, "completed": 0},{"speed" : 750, "completed": 0}]},
           {"number": "6", "name": "Karol", "laps": [{"speed" : 600, "completed": 0},{"speed" : 600, "completed": 0}]}
