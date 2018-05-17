@@ -18,8 +18,8 @@ function refreshTeams(arEkiden) {
 
 function setup() {
   let sParams = new URLSearchParams(document.location.search.substring(1));
-  let sAdmin = sParams.get("admin");  
-  let sDefoult = sParams.get("defoult");
+  let sAdmin = 1; //sParams.get("admin");  
+  let sDefoult = 1; //sParams.get("defoult");
 
   var myCanvas = createCanvas(290, 290);
   myCanvas.parent("divCanvas");
