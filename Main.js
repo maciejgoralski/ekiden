@@ -1,8 +1,9 @@
 let oEkiden;
 let dbEkiden;
+let setAdmin = 0;
 
 function refreshTeams(arEkiden) {
-  oEkiden.load(arEkiden);
+  oEkiden.load(arEkiden["2019"].teams);
 
   for (let t of oEkiden.teams) {
     try {
@@ -18,8 +19,8 @@ function refreshTeams(arEkiden) {
 
 function setup() {
   let sParams = new URLSearchParams(document.location.search.substring(1));
-  let sAdmin = 1; //sParams.get("admin");  
-  let sDefoult = 1; //sParams.get("defoult");
+  let sAdminPass = sParams.get("admin");  
+  
 
   var myCanvas = createCanvas(290, 290);
   myCanvas.parent("divCanvas");
@@ -29,13 +30,22 @@ function setup() {
   dbEkiden = new EkidenDataBase();    
   oEkiden = new Ekiden();
 
-  if (sAdmin == 1) { addActionPanel(); }
-
-  if (sDefoult == 1) {
-    let arEkiden = dbEkiden.defoult();
-    dbEkiden.update(arEkiden);
+  if(sAdminPass) {
+    console.log(sAdminPass);
+    dbEkiden.loginAsAdmin(sAdminPass);  
+    addActionPanel(3);
   }
 
+  addTeamsPanel(3);
+}
+
+function setDefoult() {
+  let sParams = new URLSearchParams(document.location.search.substring(1));
+  let sDefoult = sParams.get("defoult");
+  if (sDefoult == 1) {
+    let arEkiden = dbEkiden.defoult();
+    dbEkiden.update(arEkiden, "2019");
+  }
 }
 
 function draw() {
@@ -76,20 +86,33 @@ function drawRunner(position, speed, radius, color) {
 function run(teem) {
   try {
     document.getElementById(`divActions${teem}`).style.backgroundColor = "#999999";
-    document.getElementById(`divActions${teem}`).innerHTML = `1<img src="images/flag.svg">3`
+    //document.getElementById(`divActions${teem}`).innerHTML = `1<img src="images/flag.svg">3`
     
   } catch(err) {}
 
   let oTeam = oEkiden.teams[teem];
   oTeam.run();
-  dbEkiden.update(oEkiden);
+  dbEkiden.update(oEkiden, "2019");
 }
 
-function addActionPanel() {
+function addActionPanel(how_many) {
   document.getElementById("divActions").innerHTML = `<div id="divButtons" class="divPanel"></div>`;
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < how_many; i++) {
     //document.getElementById("divButtons").innerHTML += `<div id="divActions${i}" class="divActions" onclick="run(${i})" onTouchStart="run(${i})" style="background-color: #999999;"><img src="images/flag.svg"></div>`;
     document.getElementById("divButtons").innerHTML += `<div id="divActions${i}" class="divActions" onclick="run(${i})" onTouchStart="run(${i})" style="background-color: #999999;">1/0</div>`;
+  }  
+  document.getElementById("divButtons").innerHTML += `<div id="divDefoult" class="divActions" onclick="setDefoult()" onTouchStart="setDefoult()" style="background-color: #999999;">def</div>`;
+}
+
+function addTeamsPanel(how_many) {
+  for (let i = 0; i < how_many; i++) {
+    document.getElementById("divTeams").innerHTML += `
+      <div class="divPanel">
+      <table class="table table-sm table-striped table-bordered-column">
+      <colgroup><col width="40px"><col><col width="100px"><col></colgroup><thead class="thead-inverse"><tr><th>#</th><th>Biegacz</th><th>Postęp</th><th>Start</th></tr></thead><tbody id="tbodyTeam${i}"></tbody>
+      </table>
+      </div>
+    `;
   }  
 }
 

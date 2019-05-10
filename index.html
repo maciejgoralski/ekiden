@@ -10,7 +10,10 @@
 	<script src="Main.js"></script>
 	<script src="DataBase.js"></script>
 	<script src="Ekiden.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-database.js"></script>
+
 	<link href="bootstrap.css" rel="stylesheet">
 	<link href="docs.min.css" rel="stylesheet">
 	<link rel="icon" href="images/favicon.ico">
@@ -41,49 +44,7 @@
 </head>
 <body>
 	<div id="divCanvas" class="divPanel"></div>
-
-	<div id="divActions">
-	</div>
-
-	<div class="divPanel">
-		<table class="table table-sm table-striped table-bordered-column">
-			<colgroup><col width="40px"><col><col width="100px"><col></colgroup>
-			<thead class="thead-inverse"><tr><th>#</th><th>Biegacz</th><th>Postęp</th><th>Start</th></tr></thead>
-			<tbody id="tbodyTeam0"></tbody>
-		</table>
-	</div>
-
-	<div class="divPanel">
-		<table class="table table-sm table-striped table-bordered-column">
-			<colgroup><col width="40px"><col><col width="100px"><col></colgroup>
-			<thead class="thead-inverse"><tr><th>#</th><th>Biegacz</th><th>Postęp</th><th>Start</th></tr></thead>
-			<tbody id="tbodyTeam1"></tbody>
-		</table>
-	</div>
-
-	<div class="divPanel">
-		<table class="table table-sm table-striped table-bordered-column">
-			<colgroup><col width="40px"><col><col width="100px"><col></colgroup>
-			<thead class="thead-inverse"><tr><th>#</th><th>Biegacz</th><th>Postęp</th><th>Start</th></tr></thead>
-			<tbody id="tbodyTeam2"></tbody>
-		</table>
-	</div>
-
-	<div class="divPanel">
-		<table class="table table-sm table-striped table-bordered-column">
-			<colgroup><col width="40px"><col><col width="100px"><col></colgroup>
-			<thead class="thead-inverse"><tr><th>#</th><th>Biegacz</th><th>Postęp</th><th>Start</th></tr></thead>
-			<tbody id="tbodyTeam3"></tbody>
-		</table>
-	</div>
-
-	<div class="divPanel">
-		<table class="table table-sm table-striped table-bordered-column">
-			<colgroup><col width="40px"><col><col width="100px"><col></colgroup>
-			<thead class="thead-inverse"><tr><th>#</th><th>Biegacz</th><th>Postęp</th><th>Start</th></tr></thead>
-			<tbody id="tbodyTeam4"></tbody>
-		</table>
-	</div>
-
+	<div id="divActions"></div>
+	<div id="divTeams"></div>
 </body>
 </html>
