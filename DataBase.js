@@ -1,8 +1,8 @@
-let jsonDefoult = {
+﻿let jsonDefoult = {
   "teams": [
       {
         "index": 0,
-        "color": "#ED1C5F", 
+        "color": "#00A2CD", 
         "running": 0,
         "runners": [
           {"number": "1", "name": "Karol", "laps": [{"speed" : 520, "completed": 0},{"speed" : 520, "completed": 0},{"speed" : 520, "completed": 0}]},
@@ -10,7 +10,7 @@ let jsonDefoult = {
           {"number": "3", "name": "Piotr C", "laps": [{"speed" : 645, "completed": 0},{"speed" : 645, "completed": 0},{"speed" : 645, "completed": 0},{"speed" : 645, "completed": 0}]},
           {"number": "4", "name": "Joanna", "laps": [{"speed" : 900, "completed": 0},{"speed" : 900, "completed": 0}]},
           {"number": "5", "name": "Szymon", "laps": [{"speed" : 600, "completed": 0},{"speed" : 600, "completed": 0}]},
-          {"number": "6", "name": "Zuzanna", "laps": [{"speed" : 750, "completed": 0},{"speed" : 750, "completed": 0}]}
+          {"number": "6", "name": "Ania", "laps": [{"speed" : 750, "completed": 0},{"speed" : 750, "completed": 0}]}
         ]
       },
       {
@@ -19,7 +19,7 @@ let jsonDefoult = {
         "running": 0,
         "runners": [
           {"number": "1", "name": "Maciek", "laps": [{"speed" : 720, "completed": 0},{"speed" : 720, "completed": 0},{"speed" : 720, "completed": 0}]},
-          {"number": "2", "name": "Marcin", "laps": [{"speed" : 825, "completed": 0},{"speed" : 825, "completed": 0},{"speed" : 825, "completed": 0},{"speed" : 825, "completed": 0}]},
+          {"number": "2", "name": "Marcin", "laps": [{"speed" : 810, "completed": 0},{"speed" : 810, "completed": 0},{"speed" : 810, "completed": 0},{"speed" : 810, "completed": 0}]},
           {"number": "3", "name": "Michał", "laps": [{"speed" : 825, "completed": 0},{"speed" : 825, "completed": 0},{"speed" : 825, "completed": 0},{"speed" : 825, "completed": 0}]},
           {"number": "4", "name": "Ela", "laps": [{"speed" : 960, "completed": 0},{"speed" : 960, "completed": 0}]},
           {"number": "5", "name": "Zuzanna", "laps": [{"speed" : 900, "completed": 0},{"speed" : 900, "completed": 0}]},
@@ -28,11 +28,11 @@ let jsonDefoult = {
       },
       {
         "index": 2,
-        "color": "#00A2CD", 
+        "color": "#ED1C5F", 
         "running": 0,
         "runners": [
           {"number": "1", "name": "Alicja", "laps": [{"speed" : 800, "completed": 0},{"speed" : 800, "completed": 0},{"speed" : 800, "completed": 0}]},
-          {"number": "2", "name": "Sławek", "laps": [{"speed" : 870, "completed": 0},{"speed" : 870, "completed": 0},{"speed" : 870, "completed": 0},{"speed" : 870, "completed": 0}]},
+          {"number": "2", "name": "Sławek", "laps": [{"speed" : 780, "completed": 0},{"speed" : 780, "completed": 0},{"speed" : 780, "completed": 0},{"speed" : 780, "completed": 0}]},
           {"number": "3", "name": "Piotr K", "laps": [{"speed" : 780, "completed": 0},{"speed" : 780, "completed": 0},{"speed" : 780, "completed": 0},{"speed" : 780, "completed": 0}]},
           {"number": "4", "name": "Krzysiek", "laps": [{"speed" : 780, "completed": 0},{"speed" : 780, "completed": 0}]},
           {"number": "5", "name": "Adam", "laps": [{"speed" : 900, "completed": 0},{"speed" : 900, "completed": 0}]},
