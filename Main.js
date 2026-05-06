@@ -1,51 +1,37 @@
 let oEkiden;
-let dbEkiden;
-let setAdmin = 0;
+let oDataBase;
+let bTeamsPanelsCreated = false;
 
-function refreshTeams(arEkiden) {
-  oEkiden.load(arEkiden["2019"].teams);
+async function setup() {
 
-  for (let t of oEkiden.teams) {
-    try {
-      document.getElementById(`divActions${t.index}`).style.backgroundColor = t.color;
-      document.getElementById(`divActions${t.index}`).innerHTML = t.current() + "/" + t.lap();
-    } catch(err) {}
-    document.getElementById("tbodyTeam" + t.index).innerHTML = "";
-     for (let r of t.runners) {
-       addMember(t.index, r.number, r.name, r.laps.length, r.progress(), r.start(), t.current(), t.color);
-     }
-  }
-}
+   let sParams = new URLSearchParams(document.location.search.substring(1));
+   let sSpreadsheetId = sParams.get("id");
 
-function setup() {
-  let sParams = new URLSearchParams(document.location.search.substring(1));
-  let sAdminPass = sParams.get("admin");  
-  
+   var myCanvas = createCanvas(290, 290);
+   myCanvas.parent("divCanvas");
+   angleMode(DEGREES);
 
-  var myCanvas = createCanvas(290, 290);
-  myCanvas.parent("divCanvas");
+    oEkiden = new Ekiden();
+    oDataBase = new DataBase(sSpreadsheetId);
 
-  angleMode(DEGREES);
+    oDataBase.startPolling((data) => {
+        oEkiden.load(data.teams || []);
+        console.log("Dane odswiezone:", new Date().toLocaleTimeString());
+        console.log(oEkiden);
+        console.log("Teams:", oEkiden.teams[0].runners[0].laps[0].start);
+        addTeamsPanel();
 
-  dbEkiden = new EkidenDataBase();    
-  oEkiden = new Ekiden();
 
-  if(sAdminPass) {
-    console.log(sAdminPass);
-    dbEkiden.loginAsAdmin(sAdminPass);  
-    addActionPanel(3);
-  }
+        for (let t of oEkiden.teams) {
+            document.getElementById("tbodyTeam" + t.index).innerHTML = "";
+            for (let r of t.runners) {
+            addMember(t.index, r.number, r.name, r.laps.length, r.progress(), r.start(), t.current(), t.color);
+            }
+        }
 
-  addTeamsPanel(3);
-}
 
-function setDefoult() {
-  let sParams = new URLSearchParams(document.location.search.substring(1));
-  let sDefoult = sParams.get("defoult");
-  if (sDefoult == 1) {
-    let arEkiden = dbEkiden.defoult();
-    dbEkiden.update(arEkiden, "2019");
-  }
+    });
+
 }
 
 function draw() {
@@ -74,7 +60,6 @@ function draw() {
     }
     radius = radius - 20;
   }
-
 }
 
 function drawRunner(position, speed, radius, color) {
@@ -83,38 +68,23 @@ function drawRunner(position, speed, radius, color) {
   arc(0, 0, radius, radius, 0, positionAngle);
 }
 
-function run(teem) {
-  try {
-    document.getElementById(`divActions${teem}`).style.backgroundColor = "#999999";
-    //document.getElementById(`divActions${teem}`).innerHTML = `1<img src="images/flag.svg">3`
-    
-  } catch(err) {}
+function addTeamsPanel() {
 
-  let oTeam = oEkiden.teams[teem];
-  oTeam.run();
-  dbEkiden.update(oEkiden, "2019");
+    if (bTeamsPanelsCreated) return;
+ 
+    for (let i = 0; i < oEkiden.teams.length; i++) {
+        document.getElementById("divTeams").innerHTML += `
+        <div class="divPanel">
+        <table class="table table-sm table-striped table-bordered-column">
+        <colgroup><col width="40px"><col><col width="100px"><col></colgroup><thead class="thead-inverse"><tr><th>#</th><th>Biegacz</th><th>Postęp</th><th>Start</th></tr></thead><tbody id="tbodyTeam${i}"></tbody>
+        </table>
+        </div>
+        `;
+    }  
+
+    bTeamsPanelsCreated = true;
 }
 
-function addActionPanel(how_many) {
-  document.getElementById("divActions").innerHTML = `<div id="divButtons" class="divPanel"></div>`;
-  for (let i = 0; i < how_many; i++) {
-    //document.getElementById("divButtons").innerHTML += `<div id="divActions${i}" class="divActions" onclick="run(${i})" onTouchStart="run(${i})" style="background-color: #999999;"><img src="images/flag.svg"></div>`;
-    document.getElementById("divButtons").innerHTML += `<div id="divActions${i}" class="divActions" onclick="run(${i})" onTouchStart="run(${i})" style="background-color: #999999;">1/0</div>`;
-  }  
-  document.getElementById("divButtons").innerHTML += `<div id="divDefoult" class="divActions" onclick="setDefoult()" onTouchStart="setDefoult()" style="background-color: #999999;">def</div>`;
-}
-
-function addTeamsPanel(how_many) {
-  for (let i = 0; i < how_many; i++) {
-    document.getElementById("divTeams").innerHTML += `
-      <div class="divPanel">
-      <table class="table table-sm table-striped table-bordered-column">
-      <colgroup><col width="40px"><col><col width="100px"><col></colgroup><thead class="thead-inverse"><tr><th>#</th><th>Biegacz</th><th>Postęp</th><th>Start</th></tr></thead><tbody id="tbodyTeam${i}"></tbody>
-      </table>
-      </div>
-    `;
-  }  
-}
 
 function addMember(teem, number, name, laps, progress, start, current, color) {
 

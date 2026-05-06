@@ -1,88 +1,176 @@
-﻿let jsonDefoult = {
-  "teams": [
-      {
-        "index": 0,
-        "color": "#00A2CD", 
-        "running": 0,
-        "runners": [
-          {"number": "1", "name": "Karol", "laps": [{"speed" : 520, "completed": 0},{"speed" : 520, "completed": 0},{"speed" : 520, "completed": 0}]},
-          {"number": "2", "name": "Radek", "laps": [{"speed" : 735, "completed": 0},{"speed" : 735, "completed": 0},{"speed" : 735, "completed": 0},{"speed" : 735, "completed": 0}]},
-          {"number": "3", "name": "Piotr C", "laps": [{"speed" : 645, "completed": 0},{"speed" : 645, "completed": 0},{"speed" : 645, "completed": 0},{"speed" : 645, "completed": 0}]},
-          {"number": "4", "name": "Joanna", "laps": [{"speed" : 900, "completed": 0},{"speed" : 900, "completed": 0}]},
-          {"number": "5", "name": "Szymon", "laps": [{"speed" : 600, "completed": 0},{"speed" : 600, "completed": 0}]},
-          {"number": "6", "name": "Ania", "laps": [{"speed" : 750, "completed": 0},{"speed" : 750, "completed": 0}]}
-        ]
-      },
-      {
-        "index": 1,
-        "color": "#FF9900", 
-        "running": 0,
-        "runners": [
-          {"number": "1", "name": "Maciek", "laps": [{"speed" : 720, "completed": 0},{"speed" : 720, "completed": 0},{"speed" : 720, "completed": 0}]},
-          {"number": "2", "name": "Marcin", "laps": [{"speed" : 810, "completed": 0},{"speed" : 810, "completed": 0},{"speed" : 810, "completed": 0},{"speed" : 810, "completed": 0}]},
-          {"number": "3", "name": "Michał", "laps": [{"speed" : 825, "completed": 0},{"speed" : 825, "completed": 0},{"speed" : 825, "completed": 0},{"speed" : 825, "completed": 0}]},
-          {"number": "4", "name": "Ela", "laps": [{"speed" : 960, "completed": 0},{"speed" : 960, "completed": 0}]},
-          {"number": "5", "name": "Zuzanna", "laps": [{"speed" : 900, "completed": 0},{"speed" : 900, "completed": 0}]},
-          {"number": "6", "name": "Jacek", "laps": [{"speed" : 840, "completed": 0},{"speed" : 840, "completed": 0}]}
-        ]
-      },
-      {
-        "index": 2,
-        "color": "#ED1C5F", 
-        "running": 0,
-        "runners": [
-          {"number": "1", "name": "Alicja", "laps": [{"speed" : 800, "completed": 0},{"speed" : 800, "completed": 0},{"speed" : 800, "completed": 0}]},
-          {"number": "2", "name": "Sławek", "laps": [{"speed" : 780, "completed": 0},{"speed" : 780, "completed": 0},{"speed" : 780, "completed": 0},{"speed" : 780, "completed": 0}]},
-          {"number": "3", "name": "Piotr K", "laps": [{"speed" : 780, "completed": 0},{"speed" : 780, "completed": 0},{"speed" : 780, "completed": 0},{"speed" : 780, "completed": 0}]},
-          {"number": "4", "name": "Krzysiek", "laps": [{"speed" : 780, "completed": 0},{"speed" : 780, "completed": 0}]},
-          {"number": "5", "name": "Adam", "laps": [{"speed" : 900, "completed": 0},{"speed" : 900, "completed": 0}]},
-          {"number": "6", "name": "Sylwia", "laps": [{"speed" : 860, "completed": 0},{"speed" : 860, "completed": 0}]}
-        ]
+class DataBase {
+  constructor(sSpreadsheetId) {
+    this.m_SpreadsheetId = sSpreadsheetId || "1bc53N5nn51vc3LtNvSHvEld8QSB-VCfQg2KQT4TMdwc";
+    this.scriptId = "gviz-script-main2";
+    this.pollIntervalMs = 10000;
+    this.pollTimer = null;
+    this.isLoading = false;
+  }
+
+  loadJsonFromSheet() {
+    return new Promise((resolve) => {
+      if (this.isLoading) {
+        resolve(null);
+        return;
       }
-  ]
-};
 
-class EkidenDataBase {
-    constructor() {
-        let config = {
-          apiKey: "AIzaSyAQEhwRc3S_sAP-PXJB9KMLHi9_Uku8ldE",
-          authDomain: "ekidensagepl.firebaseapp.com",
-          databaseURL: "https://ekidensagepl.firebaseio.com",
-          projectId: "ekidensagepl",
-          storageBucket: "ekidensagepl.appspot.com",
-          messagingSenderId: "623069321192",
-          appId: "1:623069321192:web:63ccb7dfd19dea93"
+      this.isLoading = true;
+      const callbackName = "ekidenMain2Callback_" + Date.now();
+      window[callbackName] = (response) => {
+        delete window[callbackName];
+        const gvizScript = document.getElementById(this.scriptId);
+        if (gvizScript) {
+          gvizScript.remove();
+        }
+
+        try {
+          resolve(this.parseGvizToJson(response));
+        } catch (err) {
+          console.log("Blad parsowania danych z Google Sheets:", err.message);
+          resolve({ teams: [] });
+        } finally {
+          this.isLoading = false;
+        }
+      };
+
+      const existingScript = document.getElementById(this.scriptId);
+      if (existingScript) {
+        existingScript.remove();
+      }
+
+      const script = document.createElement("script");
+      script.id = this.scriptId;
+      script.src = `https://docs.google.com/spreadsheets/d/${this.m_SpreadsheetId}/gviz/tq?tqx=out:json;responseHandler:${callbackName}`;
+      script.onerror = () => {
+        delete window[callbackName];
+        this.isLoading = false;
+        console.log("Nie udalo sie pobrac danych z Google Sheets");
+        resolve({ teams: [] });
+      };
+      document.head.appendChild(script);
+    });
+  }
+
+  startPolling(onData) {
+    const refresh = async () => {
+      const data = await this.loadJsonFromSheet();
+      if (!data || typeof onData !== "function") {
+        return;
+      }
+      onData(data);
+    };
+
+    this.stopPolling();
+    refresh();
+    this.pollTimer = setInterval(refresh, this.pollIntervalMs);
+  }
+
+  stopPolling() {
+    if (!this.pollTimer) {
+      return;
+    }
+    clearInterval(this.pollTimer);
+    this.pollTimer = null;
+  }
+
+  parseGvizToJson(response) {
+    if (!response || !response.table || !response.table.cols || !response.table.rows) {
+      return { teams: [] };
+    }
+
+    const cols = response.table.cols.map((c) => c.label);
+    const rows = response.table.rows.map((r) => {
+      const obj = {};
+      r.c.forEach((cell, i) => {
+        obj[cols[i]] = cell ? cell.v : null;
+      });
+      return obj;
+    });
+
+    const teamsMap = {};
+    for (const row of rows) {
+      const teamIndex = parseInt(row["index"]);
+      if (isNaN(teamIndex)) {
+        continue;
+      }
+
+      if (!teamsMap[teamIndex]) {
+        teamsMap[teamIndex] = {
+          index: teamIndex,
+          color: row["color"] || "#999999",
+          runners: {}
         };
-        firebase.initializeApp(config);
-        this.database = firebase.database();
-        let ref = this.database.ref('ekiden');
-        ref.on('value', this.select, this.error);
+      }
+
+      const runnerNumber = String(row["runners_number"] || "");
+      if (!runnerNumber) {
+        continue;
+      }
+
+      if (!teamsMap[teamIndex].runners[runnerNumber]) {
+        teamsMap[teamIndex].runners[runnerNumber] = {
+          number: runnerNumber,
+          name: row["runners_name"] || "",
+          laps: []
+        };
+      }
+
+      teamsMap[teamIndex].runners[runnerNumber].laps.push({
+        start: this.normalizeDateValue(row["lap_start"]),
+        end: this.normalizeDateValue(row["lap_end"])
+      });
     }
 
-    loginAsAdmin(pass){
-      firebase.auth().signOut().then(function() {console.log("signOut")}, this.error);
-      firebase.auth().signInWithEmailAndPassword("admin@ekiden.sage.pl", pass).catch(this.error);
+    const teams = Object.values(teamsMap)
+      .sort((a, b) => a.index - b.index)
+      .map((team) => ({
+        index: team.index,
+        color: team.color,
+        runners: Object.values(team.runners).sort((a, b) => parseInt(a.number) - parseInt(b.number))
+      }));
+
+    return { teams };
+  }
+
+  // sprawdzić czy to musi być takie skomplikowane - może wystarczy new Date(value) i sprawdzenie czy jest poprawna?
+  normalizeDateValue(value) {
+    if (value === null || value === undefined || value === "") {
+      return null;
     }
 
-    defoult(){
-      console.log("Domyślny");
-      return jsonDefoult;
+    if (value instanceof Date && !isNaN(value.getTime())) {
+      return value;
     }
 
-    update(jsonUpdate, key){
-      console.log("Aktualizacja");
-      let updates = {};
-      updates['/ekiden/' + key] = jsonUpdate;
-      this.database.ref().update(updates);
+    if (typeof value === "string") {
+      const trimmed = value.trim();
+      const gvizMatch = /^Date\((.*)\)$/.exec(trimmed);
+      if (gvizMatch) {
+        const parts = gvizMatch[1].split(",").map((part) => parseInt(part.trim(), 10));
+        if (parts.length >= 3 && parts.slice(0, 3).every((n) => !isNaN(n))) {
+          const year = parts[0];
+          const month = parts[1];
+          const day = parts[2];
+          const hour = isNaN(parts[3]) ? 0 : parts[3];
+          const minute = isNaN(parts[4]) ? 0 : parts[4];
+          const second = isNaN(parts[5]) ? 0 : parts[5];
+          const millisecond = isNaN(parts[6]) ? 0 : parts[6];
+          return new Date(year, month, day, hour, minute, second, millisecond);
+        }
+      }
+
+      const parsedFromString = new Date(trimmed);
+      if (!isNaN(parsedFromString.getTime())) {
+        return parsedFromString;
+      }
+      return null;
     }
 
-    select(data) {
-      console.log("Worker");
-      refreshTeams(data.val());
+    const parsed = new Date(value);
+    if (!isNaN(parsed.getTime())) {
+      return parsed;
     }
 
-    error(err) {
-      console.log("Error[" + err.code + "]:" + err.message);
-    }
+    return null;
+  }
 }
-

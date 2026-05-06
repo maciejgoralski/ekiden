@@ -7,13 +7,14 @@
 	<title>Ekiden</title>
 	<script src="libraries/p5.js"></script>
 	<script src="libraries/p5.dom.js"></script>
+
+	<script src="Lap.js"></script>
+	<script src="Runner.js"></script>
+	<script src="Team.js"></script>
 	<script src="Main.js"></script>
 	<script src="DataBase.js"></script>
 	<script src="Ekiden.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-auth.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-database.js"></script>
-
+	
 	<link href="bootstrap.css" rel="stylesheet">
 	<link href="docs.min.css" rel="stylesheet">
 	<link rel="icon" href="images/favicon.ico">
@@ -28,23 +29,11 @@
 			height: 300px; 
 			float: left; 
 			}
-			
-		.divActions {
-			text-align: center;
-			margin: 25px 20px 0px 50px; 
-			color: #ffffff;
-			height: 60px; 
-			width: 60px;
-			padding: 20px;
-			border-radius: 60px;
-			float: left; 
-		}
 		
 	</style>
 </head>
 <body>
 	<div id="divCanvas" class="divPanel"></div>
-	<div id="divActions"></div>
 	<div id="divTeams"></div>
 </body>
 </html>
