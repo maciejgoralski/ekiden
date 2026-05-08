@@ -35,9 +35,9 @@ class Team {
       for (let l of r.laps) {
         if (l.start >= new Date()) {
           console.log(r);
-          console.log(this.m_current);
           this.m_speed = (l.end - l.start) / 1000;
           this.m_start = new Date(l.start);
+          this.m_current = r.number;
           bFind = 1;
           break;
         }
@@ -45,10 +45,11 @@ class Team {
       if (bFind == 1) {
         break;
       }
-      this.m_current++;
     }
 
     if (bFind == 0) {
+      console.log("Team: not current runner found");
+      this.m_current = 1;
       this.m_speed = 0;
       this.m_start = 0;
     }
