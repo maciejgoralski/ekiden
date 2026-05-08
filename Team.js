@@ -33,7 +33,7 @@ class Team {
 
     for (let r of this.runners) {
       for (let l of r.laps) {
-        if (l.start >= new Date()) {
+        if (l.start <= new Date() && new Date() < l.end) {
           console.log(r);
           this.m_speed = (l.end - l.start) / 1000;
           this.m_start = new Date(l.start);
