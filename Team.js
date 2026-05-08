@@ -32,7 +32,6 @@ class Team {
     let bFind = 0;
 
     for (let r of this.runners) {
-      this.m_current++;
       for (let l of r.laps) {
         if (l.start >= new Date()) {
           console.log(r);
@@ -46,6 +45,7 @@ class Team {
       if (bFind == 1) {
         break;
       }
+      this.m_current++;
     }
 
     if (bFind == 0) {
